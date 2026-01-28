@@ -43,12 +43,12 @@ const ProfileHeader = ({ onOpenSubscriptionModal }: ProfileHeaderProps) => {
       </div>
 
       {/* Profile picture */}
-      <div className="relative flex justify-center">
-        <div className="absolute -top-12 sm:-top-14 md:-top-16">
+      <div className="relative flex justify-center sm:justify-start px-4 sm:px-6 md:px-8">
+        <div className="absolute -top-14 sm:-top-16 md:-top-20 left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0 md:left-8">
           <div className="relative">
             <button
               onClick={onOpenSubscriptionModal}
-              className="group w-24 sm:w-28 md:w-32 h-24 sm:h-28 md:h-32 rounded-full border-3 sm:border-4 border-primary overflow-hidden bg-card cursor-pointer transition-transform transition-shadow duration-300 ease-out hover:scale-110 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/40"
+              className="group w-28 sm:w-32 md:w-36 h-28 sm:h-32 md:h-36 rounded-full border-3 sm:border-4 border-primary overflow-hidden bg-card cursor-pointer transition-transform transition-shadow duration-300 ease-out hover:scale-110 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/40"
             >
               <img
                 src={profileImage}
@@ -64,7 +64,7 @@ const ProfileHeader = ({ onOpenSubscriptionModal }: ProfileHeaderProps) => {
       </div>
 
       {/* Profile info */}
-      <div className="pt-16 sm:pt-18 md:pt-20 pb-4 sm:pb-6 px-4 sm:px-6 md:px-8 text-center md:text-left">
+      <div className="pt-20 sm:pt-24 md:pt-28 pb-4 sm:pb-6 px-4 sm:px-6 md:px-8 text-center md:text-left">
         <div className="flex items-center justify-center md:justify-start gap-1 sm:gap-2 mb-1">
           <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground">Japinha do Pijama</h3>
           <span className="text-primary text-sm sm:text-base">✓</span>
