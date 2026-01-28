@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 30 20% 97%;
+    --foreground: 0 0% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 15%;
+
+    --primary: 16 90% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 15% 94%;
+    --secondary-foreground: 0 0% 25%;
+
+    --muted: 30 10% 92%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 16 90% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 16 90% 55%;
+
+    --radius: 0.75rem;
+
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --promo: 45 100% 50%;
+    --promo-foreground: 0 0% 15%;
+
+    --live: 0 85% 55%;
+    --live-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 16 90% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 16 90% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 16 90% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .card-elevated {
+    @apply bg-card rounded-xl shadow-sm border border-border/50;
+  }
+
+  .badge-live {
+    @apply bg-live text-live-foreground text-xs sm:text-sm font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-sm uppercase tracking-wide;
+    animation: pulse-live 2s ease-in-out infinite;
+  }
+
+  .badge-promo {
+    @apply bg-success text-success-foreground text-xs font-semibold px-2 py-0.5 rounded;
+  }
+
+  .badge-popular {
+    @apply text-xs font-semibold text-primary;
+  }
+
+  .plan-card {
+    @apply bg-card border border-border rounded-xl p-3 sm:p-4 cursor-pointer transition-all duration-200 hover:border-primary/50 hover:shadow-md;
+  }
+
+  .plan-card-featured {
+    @apply bg-primary text-primary-foreground rounded-xl p-3 sm:p-4 cursor-pointer transition-all duration-200 hover:opacity-95 shadow-lg;
+  }
+
+  .preview-image {
+    @apply relative overflow-hidden rounded-lg aspect-square;
+  }
+
+  .preview-blur {
+    @apply absolute inset-0 backdrop-blur-xl bg-black/30 flex items-center justify-center;
+  }
+}
+
+@keyframes pulse-live {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
