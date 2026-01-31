@@ -56,9 +56,11 @@ const ProfileHeader = ({ onOpenSubscriptionModal }: ProfileHeaderProps) => {
                 className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110 group-hover:brightness-110"
               />
             </button>
-            <span className="badge-live absolute -bottom-1 sm:-bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs">
-              AO VIVO AGORA
-            </span>
+            <div className="absolute -bottom-1 sm:-bottom-2 left-1/2 -translate-x-1/2 z-10">
+              <span className="badge-live relative whitespace-nowrap text-xs shadow-lg shadow-red-500/50 animate-live-glow">
+                AO VIVO AGORA
+              </span>
+            </div>
           </div>
         </div>
       </div>

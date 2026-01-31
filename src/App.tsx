@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
+import Checkout from "./pages/Checkout";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => (
         <Routes>
           {/* Rota principal fixa */}
           <Route path="/@japinhadopijama" element={<Index />} />
+          <Route path="/checkout" element={<Checkout />} />
           {/* Redireciona qualquer acesso raiz para a rota principal */}
           <Route path="/" element={<Navigate to="/@japinhadopijama" replace />} />
           {/* Redireciona qualquer rota desconhecida para a rota principal */}
