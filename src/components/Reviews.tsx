@@ -138,8 +138,8 @@ const Reviews = () => {
               </div>
               
               <div className="space-y-2">
-                <h3 className="font-bold text-lg">Conteúdo Bloqueado</h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="font-bold text-lg text-black">Conteúdo Bloqueado</h3>
+                <p className="text-sm text-black">
                   Para ver todas as avaliações e deixar o seu comentário, você precisa ser um assinante ativo.
                 </p>
               </div>
