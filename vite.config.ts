@@ -48,8 +48,6 @@ export default defineConfig(({ mode }) => ({
           return;
         }
 
-        console.log(`[Vite Middleware] Intercepted request: ${req.method} ${url}`);
-
         // Configuração de CORS para resolver problemas de acesso
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -63,7 +61,6 @@ export default defineConfig(({ mode }) => ({
         }
 
         if (req.method !== 'POST') {
-          console.log('[Vite Middleware] Method not allowed:', req.method);
           res.statusCode = 405;
           res.end(JSON.stringify({ error: 'Method not allowed' }));
           return;
@@ -75,13 +72,10 @@ export default defineConfig(({ mode }) => ({
         }
         const data = Buffer.concat(buffers).toString();
         
-        console.log('[Vite Middleware] Body received:', data ? 'Yes (length: ' + data.length + ')' : 'No/Empty');
-
         try {
           // Se o corpo estiver vazio, tenta ler o req.body se já tiver sido parseado por outro middleware (embora improvável no Vite default)
           let body;
           if (!data || data.trim() === "") {
-             console.warn('[Vite Middleware] Warning: Empty body received.');
              // Em alguns casos o body pode estar vazio se o content-length for 0 ou se o cliente não mandou nada.
           } else {
             body = JSON.parse(data);
@@ -140,8 +134,6 @@ export default defineConfig(({ mode }) => ({
             }
           };
 
-          console.log('Sending payload to Genesys (Native):', JSON.stringify(payload, null, 2));
-
           const response = await fetch(API_URL, {
             method: 'POST',
             headers: {
@@ -152,7 +144,6 @@ export default defineConfig(({ mode }) => ({
           });
 
           const responseText = await response.text();
-          console.log('Genesys Raw Response (Native):', responseText);
           
           let responseData;
           try {

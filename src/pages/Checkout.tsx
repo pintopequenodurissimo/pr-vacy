@@ -71,12 +71,14 @@ const Checkout = () => {
         },
         body: JSON.stringify({
           plan: planKey,
-          customer: formData
+          customer: {
+            ...formData,
+            document: formData.document.replace(/\D/g, '')
+          }
         }),
       });
 
       const responseText = await response.text();
-      console.log('Raw API Response:', responseText);
 
       let data;
       try {
@@ -85,8 +87,6 @@ const Checkout = () => {
         console.error('Failed to parse JSON:', e);
         throw new Error('Resposta inválida do servidor: ' + responseText);
       }
-
-      console.log('API Response (Genesys/Native):', data);
 
       if (!response.ok) {
         throw new Error(data.error || 'Falha ao criar pagamento');

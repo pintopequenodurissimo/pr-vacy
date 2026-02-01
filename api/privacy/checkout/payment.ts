@@ -79,8 +79,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     };
 
-    console.log('Sending payload to Genesys:', JSON.stringify(payload, null, 2));
-
     const response = await fetch(API_URL, {
       method: 'POST',
       headers: {
@@ -91,7 +89,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
 
     const data = await response.json();
-    console.log('Genesys Response:', data);
 
     if (!response.ok) {
       console.error('Genesys API Error:', data);
